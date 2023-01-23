@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shorcut icon"
+        href="https://scontent.xx.fbcdn.net/v/t1.15752-9/297650756_1107998600098090_7156379373870152000_n.png?_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_ohc=qrSSL1pxuPgAX82PlzH&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKnetGHPNJies92hOmzFlGiOMvjzyc-xnzqj4XeUsVe1w&oe=6325A3BA">
+    <title>Trạng thái thùng rác</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- TITLE -->
+        <h1>Website cập nhật trạng thái thùng rác</h1>
+        <!-- ITEM -->
+
+        <div id="header">
+            <!-- item1 -->
+            <div class="func__item" id="change_color">
+                <input class="item" type="checkbox" value="1" id="item1" >
+                <div class="ctrl" onclick="ctrlItem1" id="js__ctrl__item1">
+                    <div class='around' class="control1">
+                        <div class="ctrl__ard">
+                            <input type="checkbox" onclick="bat()" class="switch" id="switcher_1"></input>
+                            <label onclick="tat()" for="switcher_1"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- item2 -->
+            <div class="func__item">
+                <input class="item" type="checkbox" value="2" id="item2">
+                <div class="ctrl">
+                    <div class='around' class="control2">
+                        <div class="ctrl__ard">
+                            <input type="checkbox" onclick="bat()" class="switch" id="switcher_2">Đóng gói</input>
+                            <label for="switcher_2"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- item3 -->
+            <div class="func__item" >
+                <input class="item" type="checkbox" value="3" id="item3">
+                <div class="ctrl">
+                    <div class='around' class="control3">
+                        <div class="ctrl__ard">
+                            <input type="checkbox" onclick="bat()" class="switch" id="switcher_3"></input>
+                            <label for="switcher_3"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- item4 -->
+            <div class="func__item">
+                <input class="item" type="checkbox" value="4" id="item4">
+                <div class="ctrl">
+                    <div class='around' class="control4">
+                        <div class="ctrl__ard">
+                            <input type="checkbox" onclick="bat()" class="switch" id="switcher_4">Đóng gói</input>
+                            <label for="switcher_4"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- COMMAND -->
+        <!-- <div class="cmd">
+            <h3>Chú thích: </h3>
+            <div class="item__full item__cmd">rác đầy</div>
+            <div class="item__little item__cmd">rác ít</div>
+        </div> -->
+    </header>
+    <script>
+        // READ SENSOR
+        window.onload = updataD0;
+        function updataD0() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                //SET ĐIỀU KIỆN ĐỂ ĐỌC GIÁ TRỊ
+                if (this.readyState == 4 && this.status == 200) {
+                    // NẾU GIÁ TRỊ CẢM BIẾN LÀ 1 THÌ CHÈN CLASS LED VÔ ID:change_color
+                    if (parseInt(xhttp.responseText) == 0) {
+                        document.getElementById('change_color').classList.add('led');
+                    }
+                    else{
+                        document.getElementById('change_color').classList.remove('led');
+                    }
+                    updataD0();
+
+                }
+            }
+            xhttp.open('GET', 'http://192.168.1.3/d0.html', true);
+            xhttp.send();
+        }
+    </script>
+
+    <script>
+        // ITEM1
+        var jsCtrlItem1 = document.getElementById('js__ctrl__item1');
+        var jsItem1 = document.getElementById('item1');
+        var headerHeight = header.clientHeight
+        // ĐÓNG / MỞ MOBILE MENU
+        jsItem1.onclick = function () {
+            console.log(jsCtrlItem1.clientHeight);
+            var isClose = jsCtrlItem1.clientHeight === 0;
+            if (isClose) {
+                jsCtrlItem1.style.display = 'block'
+            } else {
+                jsCtrlItem1.style.display = 'none'
+            }
+        }
+        var checkbox_toggle = document.getElementById('switcher_1');
+        checkbox_toggle.addEventListener('change', function () {
+
+        });
+    </script>
+    <script>
+        var a = -1;
+        function bat() {
+            a = a + 1;
+            console.log("bat", '=', a);
+            checka();
+            console.log("bat 1", '=', a);
+        }
+        function checka() {
+            if (a % 2 == 1) {
+                console.log("OFF");
+                var xhttp = new XMLHttpRequest();
+                xhttp.open('GET', 'http://192.168.1.3/bat.html', true);
+                xhttp.send();
+            } else {
+                console.log("ON");
+                var xhttp = new XMLHttpRequest();
+                xhttp.open('GET', 'http://192.168.1.3/tat.html', true);
+                xhttp.send();
+            }
+            console.log("checka", '=', a);
+        }
+
+    </script>
+</body>
+
+</html>
+<!-- xanh, cam vang -->

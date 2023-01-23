@@ -1,0 +1,299 @@
+/* TITLE */
+h1 {
+    font-size: 42px;
+    text-align: center;
+    color: #fff;
+}
+
+.func__item {
+
+    width: 180px;
+    border-radius: 5px;
+    margin: 50px 50px 55px 50px;
+    position: relative;
+    line-height: 32px;
+    background: green;
+}
+
+/* ITEM */
+body {
+    background: url(../img/cc3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    background: url(https://resources.blogblog.com/blogblog/data/1kt/travel/bg_black_70.png);
+    width: 90%;
+    text-align: center;
+    display: block;
+    margin: 13% auto;
+}
+
+.item {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: black;
+}
+
+/* COMMAMD */
+.cmd {
+    padding-top: 32px;
+}
+
+.cmd h3 {
+    color: #fff;
+}
+
+.item__full {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: red;
+}
+
+.item__little {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: green;
+}
+
+.item__cmd {
+    width: 100%;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.item:hover {
+    opacity: 0.5;
+}
+
+.func__item .ctrl {
+    font-size: 19px;
+    display: none;
+    min-width: 160px;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    list-style: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    width: 180px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+/* switch */
+#header {
+    display: flex;
+    align-items: center;
+
+}
+
+.ctrl__ard {
+    position: relative;
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.ctrl__ard input {
+    appearance: none;
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    background: #1E1E1E;
+    outline: none;
+}
+
+.ctrl__ard input::before,
+.ctrl__ard input::after {
+    z-index: 2;
+    position: absolute;
+    top: 56%;
+    transform: translateY(-50%);
+    font-weight: bolder;
+}
+
+.ctrl__ard input::before {
+    content: "ON";
+    left: 20px;
+}
+
+.ctrl__ard input::after {
+    content: "OFF";
+    right: 20px;
+}
+
+.ctrl__ard input:checked {
+    background: #ff9800;
+}
+
+.ctrl__ard label {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 4px;
+    border-radius: 20px;
+}
+
+.ctrl__ard input {
+    transition: 0.25s;
+}
+
+.ctrl__ard input:checked::after,
+.ctrl__ard input:checked::before {
+    color: #fff;
+    transition: color 0.5s;
+}
+
+.ctrl__ard input:checked+label {
+    left: 5%;
+    right: 50%;
+    background: #1E1E1E;
+    transition: left 0.5s, right 0.4S 0.2S;
+}
+
+.ctrl__ard input:not(:checked) {
+    background: #1E1E1E;
+    transition: 0.4s;
+}
+
+.ctrl__ard input:not(:checked)::before {
+    color: #ffff;
+    transition: color 0.5s;
+}
+
+.ctrl__ard input:not(:checked)::after {
+    color: #1E1E1E;
+    transition: color 0.5s 0.2s;
+}
+
+.ctrl__ard input:not(:checked)+label {
+    left: 50%;
+    right: 5%;
+    background: #ff9800;
+    transition: left 0.4s 0.2s, right 0.5s, 0.35s;
+}
+
+
+.btn:active {
+    transform: translateY(8px);
+    box-shadow: 0 3px 0 #ff0030;
+}
+
+.func__item button {
+    font-size: 10px;
+}
+
+.func__item .around {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 52px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1px;
+
+}
+
+.func__item .stt {
+    display: flex;
+    align-items: center;
+    grid-column: 2 / span 3;
+}
+
+.func__item .stt p {
+    display: inline-block;
+
+}
+
+.switch {
+    margin: 1px;
+    width: 180px;
+}
+
+/* BÁO ĐỘNG */
+@-webkit-keyframes glowing {
+    0% {
+        background-color: green;
+        -webkit-box-shadow: 0 0 3px green;
+    }
+
+    50% {
+        background-color: yellow;
+        -webkit-box-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        background-color: red;
+        -webkit-box-shadow: 0 0 3px red;
+    }
+}
+
+@-moz-keyframes glowing {
+    0% {
+        background-color: green;
+        -moz-box-shadow: 0 0 3px green;
+    }
+
+    50% {
+        background-color: yellow;
+        -moz-box-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        background-color: red;
+        -moz-box-shadow: 0 0 3px red;
+    }
+}
+
+@-o-keyframes glowing {
+    0% {
+        background-color: green;
+        box-shadow: 0 0 3px green;
+    }
+
+    50% {
+        background-color: yellow;
+        box-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        background-color: red;
+        box-shadow: 0 0 3px red;
+    }
+}
+
+@keyframes glowing {
+    0% {
+        background-color: green;
+        box-shadow: 0 0 3px green;
+    }
+
+    50% {
+        background-color: yellow;
+        box-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        background-color: red;
+        box-shadow: 0 0 3px red;
+    }
+}
+
+.led {
+    -webkit-animation: glowing 918ms infinite;
+    -moz-animation: glowing 918ms infinite;
+    -o-animation: glowing 918ms infinite;
+    animation: glowing 918ms infinite;
+}
